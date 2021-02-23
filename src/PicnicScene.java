@@ -81,7 +81,7 @@ public class PicnicScene extends JPanel{
         drawBird(g2);
         drawTree(g2, -10, 0);
         drawBlanket(g2);
-        drawPerson(g2);
+        drawPerson(g2, true);
 
         drawTree(g2, 1025, 0);
 
@@ -239,7 +239,7 @@ public class PicnicScene extends JPanel{
         g2.fill(basket);
     }
 
-    private void drawPerson(Graphics2D g2) {
+    private void drawPerson(Graphics2D g2, boolean sleeping) {
         AffineTransform cs = g2.getTransform();
         g2.scale(.1, .1);
         g2.translate(0, 10);
@@ -251,15 +251,24 @@ public class PicnicScene extends JPanel{
         body.lineTo(7, -20);
         body.moveTo(5, -10);
         body.lineTo(3, -20);
+
+        //arms behind head
+        if(sleeping == true) {
+            //arms behind head
+            body.moveTo(5, -3);
+            body.lineTo(-3, 2);
+            body.lineTo(5, 5);
+            body.moveTo(5, -3);
+            body.lineTo(13, 2);
+            body.lineTo(5, 5);
+        }
         g2.setPaint(Color.BLACK);
         g2.setStroke(new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
-        g2.draw(head);
         g2.draw(body);
+        g2.draw(head);
 
         g2.setPaint(Color.WHITE);
         g2.fill(head);
-
-
 
         g2.setTransform(cs);
     }
