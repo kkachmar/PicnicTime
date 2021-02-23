@@ -81,6 +81,8 @@ public class PicnicScene extends JPanel{
         drawBird(g2);
         drawTree(g2, -10, 0);
         drawBlanket(g2);
+        drawPerson(g2);
+
         drawTree(g2, 1025, 0);
 
     }
@@ -224,7 +226,6 @@ public class PicnicScene extends JPanel{
 
     private void drawPicnicBasket(Graphics2D g2){
         Rectangle2D.Double basket = new Rectangle2D.Double(0, 0, 5,3.5);
-
         g2.setStroke(new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
         g2.setPaint(new Color(122, 78, 23));
         Path2D handle = new Path2D.Double();
@@ -237,6 +238,34 @@ public class PicnicScene extends JPanel{
         g2.draw(handle);
         g2.fill(basket);
     }
+
+    private void drawPerson(Graphics2D g2) {
+        AffineTransform cs = g2.getTransform();
+        g2.scale(.1, .1);
+        g2.translate(0, 10);
+        Ellipse2D.Double head = new Ellipse2D.Double(0, 0, 10, 11.5);
+        Path2D.Double body = new Path2D.Double();
+        body.moveTo(5, 0);
+        body.lineTo(5, -10);
+        body.moveTo(5, -10);
+        body.lineTo(7, -20);
+        body.moveTo(5, -10);
+        body.lineTo(3, -20);
+        g2.setPaint(Color.BLACK);
+        g2.setStroke(new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
+        g2.draw(head);
+        g2.draw(body);
+
+        g2.setPaint(Color.WHITE);
+        g2.fill(head);
+
+
+
+        g2.setTransform(cs);
+    }
+
+
+
     //window to viewport transformation
     private void applyWindowToViewportTransformation(Graphics2D g2, double left, double right, double bottom, double top, boolean preserveAspect){
         int width = getWidth(); //width drawing area
