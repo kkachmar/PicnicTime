@@ -232,7 +232,7 @@ public class PicnicScene extends JPanel{
         handle.moveTo(1, 3.4);
         handle.curveTo(2, 4.4, 3, 4.4, 4, 3.4);
 
-        g2.translate(6.5, 4);
+        g2.translate(6.5, 4.5);
         //g2.scale(.5,.5);
         g2.setPaint(new Color(122, 78, 23));
         g2.draw(handle);
@@ -242,7 +242,7 @@ public class PicnicScene extends JPanel{
     private void drawPerson(Graphics2D g2, boolean sleeping) {
         AffineTransform cs = g2.getTransform();
         g2.scale(.1, .1);
-        g2.translate(0, 10);
+        g2.translate(72, 33);
         Ellipse2D.Double head = new Ellipse2D.Double(0, 0, 10, 11.5);
         Path2D.Double body = new Path2D.Double();
         body.moveTo(5, 0);
@@ -251,6 +251,9 @@ public class PicnicScene extends JPanel{
         body.lineTo(7, -20);
         body.moveTo(5, -10);
         body.lineTo(3, -20);
+
+        g2.shear(.8, 0);
+        g2.scale(.7, .7);
 
         //arms behind head
         if(sleeping == true) {
