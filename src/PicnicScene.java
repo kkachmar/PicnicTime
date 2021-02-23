@@ -45,7 +45,7 @@ public class PicnicScene extends JPanel{
 
     //constructor
     public PicnicScene(){
-        setPreferredSize(new Dimension(1000, 1000)); //drawing area is 1000px x 1000px
+        setPreferredSize(new Dimension(900, 800));
     }
 
     //paint component method -- draws content of JPanel
@@ -79,9 +79,9 @@ public class PicnicScene extends JPanel{
         drawLake(g2);
         drawSunWithRays(g2);
         drawBird(g2);
-        drawTree(g2, 0, 0);
+        drawTree(g2, -10, 0);
         drawBlanket(g2);
-        drawTree(g2, 975, 0);
+        drawTree(g2, 1025, 0);
 
     }
 
@@ -93,7 +93,7 @@ public class PicnicScene extends JPanel{
         lake.curveTo(300, -80, 400, -80, 600, 100);
         lake.closePath();
         g2.scale(0.02, 0.02);
-        g2.translate(-200, 225);
+        g2.translate(-200, 131);
         g2.fill(lake);
         g2.setTransform(cs);
     }
@@ -183,8 +183,8 @@ public class PicnicScene extends JPanel{
         tree.lineTo(300,0);
         tree.curveTo(200, 200, 200, 400, 250, 500);
         tree.closePath();
-        g2.scale(0.02, 0.02);
-        g2.translate(-155, 225);
+        g2.scale(0.022, 0.022);
+        g2.translate(-155, 205);
 
         Ellipse2D.Double leaves = new Ellipse2D.Double(-50, 350,400, 400);
 
@@ -202,7 +202,7 @@ public class PicnicScene extends JPanel{
     private void drawBlanket(Graphics2D g2){
         AffineTransform cs = g2.getTransform();
         g2.scale(.3,.3);
-        g2.translate(12.5, 8);
+        g2.translate(17.5, 6);
         AffineTransform cs2 = g2.getTransform();
         g2.shear(1,0);
         Rectangle2D.Double blanket = new Rectangle2D.Double(0, 0, 7, 8);
@@ -224,11 +224,6 @@ public class PicnicScene extends JPanel{
 
     private void drawPicnicBasket(Graphics2D g2){
         Rectangle2D.Double basket = new Rectangle2D.Double(0, 0, 5,3.5);
-
-        Path2D tree = new Path2D.Double();
-        tree.moveTo(5.5, 3.5;
-        tree.curveTo(, 400, 100, 200, 2.5, 3.5);
-        tree.lineTo(100, 75);
 
         g2.translate(6.5, 4);
         //g2.scale(.5,.5);
