@@ -225,9 +225,16 @@ public class PicnicScene extends JPanel{
     private void drawPicnicBasket(Graphics2D g2){
         Rectangle2D.Double basket = new Rectangle2D.Double(0, 0, 5,3.5);
 
+        g2.setStroke(new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
+        g2.setPaint(new Color(122, 78, 23));
+        Path2D handle = new Path2D.Double();
+        handle.moveTo(1, 3.4);
+        handle.curveTo(2, 4.4, 3, 4.4, 4, 3.4);
+
         g2.translate(6.5, 4);
         //g2.scale(.5,.5);
         g2.setPaint(new Color(122, 78, 23));
+        g2.draw(handle);
         g2.fill(basket);
     }
     //window to viewport transformation
